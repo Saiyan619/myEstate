@@ -1,35 +1,33 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import RequireAuth from './auth/RequireAuth';
 import Dashboard from './pages/Dashboard';
 import SignIn from './auth/SignIn';
 import SignUp from './auth/SignUp';
-import { useUser } from '@clerk/clerk-react';
 import HomePage from './pages/home/HomePage';
+import CreateHouse from './pages/HousePosting/CreateHouse';
 
 
 const App = () => {
-  const { user } = useUser()
-  const navigate = useNavigate()
 
-  useEffect(() => {
-    naVtoDashboard()
-  }, [user])
-  
-  const naVtoDashboard = async () => {
-    if (user) {
-      navigate('/dashboard')
-    }
-  }
+
   return (
     <Routes>
       
+      
       {/* Public Routes */}
-      <Route path="/" element={<SignIn />} />
+      <Route path="/sign-in/*" element={<SignIn />} />
       <Route path="/sign-up/*" element={<SignUp />} />
 
       {/* Protected Routes */}
+      <Route path="/"
+        element={
+          <RequireAuth>
+            <HomePage />
+          </RequireAuth>
+        }
+      />
+
       <Route
         path="/dashboard"
         element={
@@ -38,13 +36,16 @@ const App = () => {
           </RequireAuth>
         }
       />
-      <Route path="/homepage"
+
+      <Route
+        path="/post house"
         element={
           <RequireAuth>
-            <HomePage />
+            <CreateHouse />
           </RequireAuth>
         }
       />
+     
     </Routes>
   );
 };

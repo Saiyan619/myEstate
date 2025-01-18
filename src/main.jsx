@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { ClerkProvider } from '@clerk/clerk-react';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import './index.css'
 
 // Retrieve Clerk frontend API from environment variable
 const clerkFrontendApi = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;

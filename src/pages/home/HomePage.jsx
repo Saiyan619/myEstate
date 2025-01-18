@@ -1,12 +1,16 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import Hero from './components/Hero';
+import Nav from '../../GlobalComponents/Nav';
+import HouseCard from './components/HouseCard';
 
 const HomePage = () => {
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Welcome to My App</h1>
-      <p>
-      </p>
+    <div>
+     <Nav />
+      <Hero />
+
+      <h2 className='text-4xl font-bold text-center'>Find your Dream house Here</h2>
+        <HouseCard />
     </div>
   );
 };
