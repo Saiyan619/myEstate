@@ -2,11 +2,11 @@ import React from 'react';
 import { useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import RequireAuth from './auth/RequireAuth';
-import HomePage from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
 import SignIn from './auth/SignIn';
 import SignUp from './auth/SignUp';
 import { useUser } from '@clerk/clerk-react';
+import HomePage from './pages/home/HomePage';
 
 
 const App = () => {
@@ -26,7 +26,6 @@ const App = () => {
     <Routes>
       
       {/* Public Routes */}
-      {/* <Route path="/homepage" element={<HomePage />} /> */}
       <Route path="/" element={<SignIn />} />
       <Route path="/sign-up/*" element={<SignUp />} />
 
@@ -36,6 +35,13 @@ const App = () => {
         element={
           <RequireAuth>
             <Dashboard />
+          </RequireAuth>
+        }
+      />
+      <Route path="/homepage"
+        element={
+          <RequireAuth>
+            <HomePage />
           </RequireAuth>
         }
       />
