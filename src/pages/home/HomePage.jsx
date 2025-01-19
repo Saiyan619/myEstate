@@ -17,6 +17,3 @@ const HomePage = () => {
 
 export default HomePage;
 
-
-{/* <Link to="/sign-in">Sign In</Link> or <Link to="/sign-up">Sign Up</Link> to continue. */ }
-
