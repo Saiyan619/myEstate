@@ -27,8 +27,9 @@ const Nav = () => {
                         <li><Link to="/dashboard"><a>dashboard</a></Link></li>
                         <li><Link to="/post house"><a>Post a House</a></Link></li>
         </ul>
-      </div>
-      <a className="btn btn-ghost text-xl font-bold">MyEstate</a>
+        </div>
+        <Link to="/"> <a className="btn btn-ghost text-xl font-bold">MyEstate</a></Link>
+     
     </div>
     <div className="navbar-center hidden lg:flex">
       <ul className="menu menu-horizontal px-1">
