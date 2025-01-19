@@ -1,11 +1,13 @@
 import React from 'react';
 import { useAuth, UserButton, useUser } from '@clerk/clerk-react';
+import Nav from '../GlobalComponents/Nav'
 
 const Dashboard = () => {
   const { user } = useUser();
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+    <div>
+      <Nav />
       <UserButton />
       <h1>Welcome to your Dashboard, {user?.firstName}!</h1>
     </div>
