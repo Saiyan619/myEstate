@@ -26,8 +26,8 @@ const HeroDashboard = () => {
               
               <div className="stats shadow">
   <div className="stat">
-    <div className="stat-title">Post New House</div>
-    <div className="stat-value">+</div>
+    <div className="stat-title">Available House</div>
+    <div className="stat-value">10</div>
     <div className="stat-desc">21% more than last month</div>
   </div>
               </div>

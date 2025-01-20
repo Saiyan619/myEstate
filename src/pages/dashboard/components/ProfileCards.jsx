@@ -31,33 +31,7 @@ const ProfileCards = () => {
           </div>
           
 
-          <div>
-              
-          <div className="stats shadow">
-  <div className="stat">
-    <div className="stat-title">Total Houses Posted</div>
-    <div className="stat-value">5</div>
-    <div className="stat-desc">21% more than last month</div>
-  </div>
-              </div>
-              
-              <div className="stats shadow">
-  <div className="stat">
-    <div className="stat-title">Saved Houses</div>
-    <div className="stat-value">15</div>
-    <div className="stat-desc">21% more than last month</div>
-  </div>
-              </div>
-              
-              <div className="stats shadow">
-  <div className="stat">
-    <div className="stat-title">Post New House</div>
-    <div className="stat-value">+</div>
-    <div className="stat-desc">21% more than last month</div>
-  </div>
-              </div>
-              
-          </div>
+          
           
     </div>
   )

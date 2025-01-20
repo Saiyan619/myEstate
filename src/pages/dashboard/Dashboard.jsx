@@ -10,9 +10,9 @@ const Dashboard = () => {
   return (
     <div>
       <Nav />
-      <UserButton />
+      {/* <UserButton /> */}
       <HeroDashboard />
-      <h1>Welcome to your Dashboard, {user?.firstName}!</h1>
+      {/* <h1>Welcome to your Dashboard, {user?.firstName}!</h1> */}
 
       <div>
         <ProfileCards />
