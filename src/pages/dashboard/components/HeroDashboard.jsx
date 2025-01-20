@@ -2,7 +2,7 @@ import React from 'react'
 
 const HeroDashboard = () => {
   return (
-      <div className='p-4'>
+      <div className=''>
           <div className='bg-blue-500 p-4 rounded-2xl'>
           <h1 className='text-lg font-bold'>Welcome to your Dashboard, Mr Olaniyi</h1>
 

@@ -3,6 +3,7 @@ import { useAuth, UserButton, useUser } from '@clerk/clerk-react';
 import Nav from '../../GlobalComponents/Nav'
 import ProfileCards from './components/ProfileCards';
 import HeroDashboard from './components/HeroDashboard';
+import EditDetails from './components/EditDetails';
 
 const Dashboard = () => {
   const { user } = useUser();
@@ -10,13 +11,14 @@ const Dashboard = () => {
   return (
     <div>
       <Nav />
-      {/* <UserButton /> */}
+      <div className='p-4'>
       <HeroDashboard />
-      {/* <h1>Welcome to your Dashboard, {user?.firstName}!</h1> */}
-
-      <div>
+      <div className='mt-5'>
         <ProfileCards />
-      </div>
+        </div>
+
+       
+        </div>
     </div>
   );
 };
