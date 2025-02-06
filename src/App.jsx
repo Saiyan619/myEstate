@@ -37,7 +37,7 @@ const App = () => {
       />
 
       <Route
-        path="/post house"
+        path="/post-house"
         element={
           <RequireAuth>
             <CreateHouse />
