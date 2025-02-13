@@ -34,7 +34,7 @@ const HomeSectionOne = () => {
           </div> */}
 
 
-          <div className="flex items-center justify-center mt-32 flex-col">
+          <div className="flex items-center justify-center mt-32 flex-col pb-20">
               <span className='text-2xl font-bold'>Our Numbers Dont Lie</span>
           <div className="stats bg-transparent text-white mt-12">
   <div className="stat place-items-center">
@@ -55,15 +55,15 @@ const HomeSectionOne = () => {
           </div>
           
 
-          <div className="hero bg-white min-h-1/2">
+          <div className="hero bg-white min-h-1/2 pt-20 pb-20">
   <div className="hero-content text-center flex items-center justify-center">
                   <div className="max-w-md">
                       <span className='text-purple-700'>No spam promise</span>
-      <h1 className="text-4xl font-bold text-black">Are you a LandLord?</h1>
+      <h1 className="text-4xl font-bold text-black">Are you a House Owner?</h1>
       <p className=" text-gray-500">
         Discover ways to increase your home value and get homelisted. No spam
                       </p>
-                      <p className='text-gray-400'>Join +10,000 other Landlord in our estate community</p>
+                      <p className='text-gray-400'>Join +10,000 other House Owners in our estate community</p>
       <button className="btn btn-primary">Get Started</button>
     </div>
   </div>

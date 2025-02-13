@@ -33,7 +33,7 @@ const Nav = () => {
     </div>
     <div className="navbar-center hidden lg:flex">
       <ul className="menu menu-horizontal px-1">
-      <li><Link to="/dashboard"><a>dashboard</a></Link></li>
+      <li><Link to="/dashboard"><a>Dashboard</a></Link></li>
       <li><Link to="/post-house"><a>Post a House</a></Link></li>
       </ul>
     </div>

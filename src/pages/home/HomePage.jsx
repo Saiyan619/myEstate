@@ -5,6 +5,7 @@ import Nav from '../../GlobalComponents/Nav';
 import HouseCard from './components/HouseCard';
 import GlobalApi from '../../Utils/GlobalApi';
 import HomeSectionOne from './homepageSections/homeSectionOne';
+import Footer from './Footer';
 
 const HomePage = () => {
   const [allHouses, setAllHouses] = useState([])
@@ -49,6 +50,7 @@ const HomePage = () => {
       
       <HomeSectionOne />
 
+<Footer />
 
     </div>
   );
