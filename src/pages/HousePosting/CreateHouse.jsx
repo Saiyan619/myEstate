@@ -11,7 +11,7 @@ const CreateHouse = () => {
   const [rooms, setRooms] = useState(0);
   const [bathrooms, setBathrooms] = useState(0);
   const [images, setImages] = useState([]); // Array of images
-  const [postedBy, setPostedBy] = useState("615f1d4a3f2e8c3d1c6d1a4b");
+  const [postedBy, setPostedBy] = useState("");
 
   function handleImages(e) { 
     setImages([...e.target.files]); // Convert FileList to an array

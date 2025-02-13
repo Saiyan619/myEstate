@@ -33,6 +33,7 @@ const HomeSectionOne = () => {
 </div>
           </div> */}
 
+
           <div className="flex items-center justify-center mt-32 flex-col">
               <span className='text-2xl font-bold'>Our Numbers Dont Lie</span>
           <div className="stats bg-transparent text-white mt-12">

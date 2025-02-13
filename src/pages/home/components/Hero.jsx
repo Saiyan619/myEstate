@@ -7,7 +7,8 @@ const Hero = () => {
   className="hero min-h-screen rounded-3xl"
   style={{
       backgroundImage: "url(./pexels-binyaminmellish-106399.jpg)",
-  }}>
+        }}>
+        
   <div className="hero-overlay bg-opacity-60 rounded-3xl"></div>
   <div className="hero-content text-neutral-content text-center">
     <div className="max-w-md">
