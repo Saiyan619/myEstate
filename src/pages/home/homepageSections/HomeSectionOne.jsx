@@ -11,29 +11,6 @@ const HomeSectionOne = () => {
               </p>
       </div>
 
-          {/* <div className='flex items-center justify-center gap-64'>
-          <div className="card bg-primary text-primary-content w-96">
-  <div className="card-body">
-    <h2 className="card-title">Card title!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn">Buy Now</button>
-    </div>
-  </div>
-              </div>
-
-              <div className="card bg-primary text-primary-content w-96">
-  <div className="card-body">
-    <h2 className="card-title">Card title!</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
-      <button className="btn">Buy Now</button>
-    </div>
-  </div>
-</div>
-          </div> */}
-
-
           <div className="flex items-center justify-center mt-32 flex-col pb-20">
               <span className='text-2xl font-bold'>Our Numbers Dont Lie</span>
           <div className="stats bg-transparent text-white mt-12">
@@ -53,6 +30,8 @@ const HomeSectionOne = () => {
   </div>
 </div>
           </div>
+
+        di
           
 
           <div className="hero bg-white min-h-1/2 pt-20 pb-20">

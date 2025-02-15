@@ -5,8 +5,10 @@ const axiosClient = axios.create({
 
 const getAllHouse = () => axiosClient.get('/house/getHouse');
 const createHouse = (data) => axiosClient.post('house/createHouse', data)
+const getHouseDetails = (id) => axiosClient.get(`house/getHouse/${id}`)
 
 export default {
     getAllHouse,
-    createHouse
+    createHouse,
+    getHouseDetails
 }
