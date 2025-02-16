@@ -16,7 +16,8 @@ const CreateHouse = () => {
   const [postedBy, setPostedBy] = useState(user.id);
 
   function handleImages(e) { 
-    setImages([...e.target.files]); // Convert FileList to an array
+        // Convert FileList to an array
+    setImages([...e.target.files]);
   }
   // console.log(user)
   // console.log(postedBy)
