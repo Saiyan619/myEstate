@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import GlobalApi from '../../Utils/GlobalApi'
+import ContactOwnerForm from './ContactOwnerForm'
 
 const HouseDetails = () => {
   const { id } = useParams()
@@ -41,13 +42,13 @@ const HouseDetails = () => {
             />
             <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
               <a 
-                href={`#slide${index === 0 ? houseDetails.images.length : index}`} 
+                href={`#slide${index === 0 ? houseDetails?.images?.length : index}`} 
                 className="btn btn-circle"
               >
                 ❮
               </a>
               <a 
-                href={`#slide${index === houseDetails.images.length - 1 ? 1 : index + 2}`} 
+                href={`#slide${index === houseDetails?.images?.length - 1 ? 1 : index + 2}`} 
                 className="btn btn-circle"
               >
                 ❯
@@ -57,16 +58,20 @@ const HouseDetails = () => {
         ))}
       </div>
 
-      {/* House details can be added here */}
       <div className="p-4">
-        <h1 className="text-3xl font-bold">{houseDetails.title}</h1>
-        <p className="text-xl text-gray-600">{houseDetails.location}</p>
+        <h1 className="text-3xl font-bold">{houseDetails?.title}</h1>
+        <p className="text-xl text-gray-600">{houseDetails?.location}</p>
         <div className="flex gap-4 my-4">
-          <span className="badge badge-lg">{houseDetails.rooms} Rooms</span>
-          <span className="badge badge-lg">{houseDetails.bathrooms} Bathrooms</span>
-          <span className="badge badge-lg">${houseDetails.price.toLocaleString()}</span>
+          <span className="badge badge-lg">{houseDetails?.rooms} Rooms</span>
+          <span className="badge badge-lg">{houseDetails?.bathrooms} Bathrooms</span>
+          <span className="badge badge-lg">${houseDetails?.price?.toLocaleString() || 'N/A'}</span>
         </div>
-        <p className="my-4">{houseDetails.description}</p>
+        <p className="my-4">{houseDetails?.description}</p>
+      </div>
+
+
+      <div>
+        <ContactOwnerForm />
       </div>
     </div>
   )
