@@ -26,7 +26,7 @@ const HouseCard = ({ item }) => {
           <h2 className="card-title uppercase font-bold">{item.title}</h2>
           <div className="badge badge-secondary">NEW</div>
           <p>{item.location}</p>
-    <div className="card-actions flex items-center justify-between">
+    <div className="card-actions flex justify-between flex-col">
             {/* <button className="btn btn-primary">Buy Now</button> */}
               <div className='flex items-center gap-1'>
                 <img className='w-4' src="./icons8-bedroom-50.png" alt="icon" />
@@ -38,6 +38,19 @@ const HouseCard = ({ item }) => {
               <span className='text-sm'>{item.rooms} Bathrooms</span>
             </div>
 
+            <div className='mt-4'>
+              <span className='text-sm'>Posted By</span>
+              <div className='flex items-center gap-1'>
+              <div className="avatar placeholder">
+  <div className="bg-neutral text-neutral-content w-6 rounded-full">
+    <span className="text-xs">UI</span>
+  </div>
+                </div>
+                
+                <span className='text-xs capitalize'>{item.owner.firstName}{" "}{item.owner.lastName}</span>
+              </div>
+          </div>
+            
             <Link to={`/house/${item._id}`}>
               <button className='btn'> Check House</button>
             </Link>

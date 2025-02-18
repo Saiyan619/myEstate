@@ -7,11 +7,13 @@ const axiosClient = axios.create({
 
 
 // Set of functions(Routes written in the backend) to consume on the frontend 
+const createUser = (data) => axiosClient.post('user/create', data)
 const getAllHouse = () => axiosClient.get('/house/getHouse');
 const createHouse = (data) => axiosClient.post('house/createHouse', data)
 const getHouseDetails = (id) => axiosClient.get(`house/getHouse/${id}`)
 
 export default {
+    createUser,
     getAllHouse,
     createHouse,
     getHouseDetails
