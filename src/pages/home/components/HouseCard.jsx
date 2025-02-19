@@ -47,7 +47,7 @@ const HouseCard = ({ item }) => {
   </div>
                 </div>
                 
-                <span className='text-xs capitalize'>{item.owner.firstName}{" "}{item.owner.lastName}</span>
+                <span className='text-xs capitalize cursor-pointer'>{item.owner.firstName}{" "}{item.owner.lastName}</span>
               </div>
           </div>
             
