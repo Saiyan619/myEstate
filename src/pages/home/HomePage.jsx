@@ -61,7 +61,7 @@ const HomePage = () => {
       <h2 className='text-4xl font-bold text-center'>Find your Dream house Here</h2>
 
       <div className='flex flex-col items-center pb-10'>
-      <div className='flex gap-4 items-center justify-center'>
+      <div className='flex gap-4 items-center flex-wrap justify-center'>
       {allHouses.map((item, index) => {
         return <HouseCard key={index} item={item} />
       })}
