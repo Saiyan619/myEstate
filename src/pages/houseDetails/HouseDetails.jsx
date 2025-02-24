@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import GlobalApi from '../../Utils/GlobalApi'
 import ContactOwnerForm from './ContactOwnerForm'
+import Nav from '../../GlobalComponents/Nav'
 
 const HouseDetails = () => {
   const { id } = useParams()
@@ -31,8 +32,9 @@ const HouseDetails = () => {
   console.log(`${baseUrl}${houseDetails?.images?.[0]}`)
 
   return (
-    <div>
-      <div className="carousel w-full">
+    <div className='bg-gray-50'>
+      <Nav />
+      <div className="carousel w-full ">
         {houseDetails?.images?.map((item, index) => (
           <div id={`slide${index + 1}`} key={index} className="carousel-item relative w-full">
             <img
@@ -58,21 +60,34 @@ const HouseDetails = () => {
         ))}
       </div>
 
+      <div className='flex justify-between sm:p-10 flex-wrap'>
       <div className="p-4">
         <h1 className="text-3xl font-bold">{houseDetails?.title}</h1>
         <p className="text-xl text-gray-600">{houseDetails?.location}</p>
-        <div className="flex gap-4 my-4">
-          <span className="badge badge-lg">{houseDetails?.rooms} Rooms</span>
-          <span className="badge badge-lg">{houseDetails?.bathrooms} Bathrooms</span>
+        <div className="flex gap-4 my-4 flex-wrap">
+          <span className="badge badge-lg">
+          <img className='w-4 mb-1 mr-2' src="/icons8-bedroom-50.png" alt="icon" />
+            {houseDetails?.rooms} Rooms
+          </span>
+          <span className="badge badge-lg">
+          <img className='w-4 mb-1 mr-2' src="/icons8-bathroom-50.png" alt="icon" />
+            {houseDetails?.bathrooms} Bathrooms
+          </span>
           <span className="badge badge-lg">${houseDetails?.price?.toLocaleString() || 'N/A'}</span>
         </div>
-        <p className="my-4">{houseDetails?.description}</p>
+
+        <div>
+          <span className='text-xl font-semibold'>Description</span>
+          <p className="my-4">{houseDetails?.description}</p>
+        </div>
       </div>
 
 
       <div>
         <ContactOwnerForm />
       </div>
+      </div>
+      
     </div>
   )
 }

@@ -32,13 +32,13 @@ const HomePage = () => {
           email: user?.primaryEmailAddress?.emailAddress,
         }
         const response = await GlobalApi.createUser(userData)
-        console.log(response.data)
+        console.log("user created:", response.data)
       } catch (error) {
         console.error(error)
         throw new Error();
       }
     } else {
-      console.log('User does not exist!')
+      console.log('user couldnt be created')
     }
   
   }
