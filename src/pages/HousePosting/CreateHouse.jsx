@@ -24,7 +24,8 @@ const CreateHouse = () => {
 
   const createNewHouse = async () => {
     try {
-      const formData = new FormData();
+      if (user) {
+        const formData = new FormData();
       formData.append("title", title);
       formData.append("description", description);
       formData.append("price", price);
@@ -41,6 +42,10 @@ const CreateHouse = () => {
       const response = await GlobalApi.createHouse(formData);
 
       console.log(response.data);
+      } else {
+        console.log("user does not exist")
+      }
+      
     } catch (error) {
       console.log(error);
     }

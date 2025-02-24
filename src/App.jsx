@@ -7,6 +7,7 @@ import SignUp from './auth/SignUp';
 import HomePage from './pages/home/HomePage';
 import CreateHouse from './pages/HousePosting/CreateHouse';
 import HouseDetails from './pages/houseDetails/HouseDetails';
+import UserProfile from './pages/userProfile/UserProfile';
 
 
 const App = () => {
@@ -51,6 +52,15 @@ const App = () => {
         element={
           <RequireAuth>
             <HouseDetails />
+          </RequireAuth>
+        }
+      />  
+      
+      <Route
+        path="/user/:id"
+        element={
+          <RequireAuth>
+            <UserProfile />
           </RequireAuth>
         }
       />

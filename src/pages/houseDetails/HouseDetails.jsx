@@ -63,6 +63,8 @@ const HouseDetails = () => {
       <div className='flex justify-between sm:p-10 flex-wrap'>
       <div className="p-4">
         <h1 className="text-3xl font-bold">{houseDetails?.title}</h1>
+        <h1 className="text-2xl font-bold text-blue-600">${houseDetails?.price?.toLocaleString() || 'N/A'}</h1>
+        <h1 className="text-sm font-bold">Owned By: {houseDetails?.owner?.firstName}{" "}{houseDetails?.owner?.lastName}</h1>
         <p className="text-xl text-gray-600">{houseDetails?.location}</p>
         <div className="flex gap-4 my-4 flex-wrap">
           <span className="badge badge-lg">
@@ -84,7 +86,7 @@ const HouseDetails = () => {
 
 
       <div>
-        <ContactOwnerForm />
+        <ContactOwnerForm ownerEmail={houseDetails?.owner?.email}/>
       </div>
       </div>
       

@@ -17,13 +17,15 @@ const HomePage = () => {
   const [allHouses, setAllHouses] = useState([])
 
   useEffect(() => {
-    createAUser()
+    if (user) {
+      createAUser()
+    }
     getHouseAll()
+    
   }, [user])
   
 
   const createAUser = async () => {
-    if (user) {
       try {
         const userData = {
           clerkId: user?.id,
@@ -36,10 +38,7 @@ const HomePage = () => {
       } catch (error) {
         console.error(error)
         throw new Error();
-      }
-    } else {
-      console.log('user couldnt be created')
-    }
+    } 
   
   }
 

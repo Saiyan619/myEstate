@@ -1,6 +1,7 @@
 import emailjs from "emailjs-com";
 
 const ContactOwnerForm = ({ ownerEmail }) => {
+  console.log(ownerEmail)
   const sendEmail = (e) => {
     e.preventDefault();
     // lekeafolion@gmail.com
@@ -61,7 +62,7 @@ const ContactOwnerForm = ({ ownerEmail }) => {
         <div className="label">
     <span className="label-text">Send Email To:</span>
   </div>
-  <input type="email" className="input" hidden value='arokoyujr10@gmail.com' name="owner_email" placeholder="to Email" required />
+  <input type="email" className="input" hidden value={ownerEmail} name="owner_email" placeholder="to Email" required />
  
 </label>
 

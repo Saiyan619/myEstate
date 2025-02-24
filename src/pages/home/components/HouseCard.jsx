@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 
 const HouseCard = ({ item }) => {
   
-  console.log(item.images[0])
+  // console.log(item.images[0])
+  console.log(item?.owner?._id)
   const baseUrl = 'http://localhost:5000/'
-  console.log(`${baseUrl}${item.images[0]}`)
+  // console.log(`${baseUrl}${item.images[0]}`)
   return (
     <div className='flex items-center justify-center flex-wrap gap-20 mt-20'>
       <div className="card bg-base-100 w-72 shadow-xl">
@@ -46,8 +47,10 @@ const HouseCard = ({ item }) => {
     <span className="text-xs">UI</span>
   </div>
                 </div>
-                
-                <span className='text-xs capitalize cursor-pointer'>{item.owner.firstName}{" "}{item.owner.lastName}</span>
+
+              <Link to={`/user/${item?.owner?._id}`}>
+              <span className='text-xs capitalize cursor-pointer'>{item?.owner?.firstName}{" "}{item?.owner?.lastName}</span>
+              </Link>  
               </div>
           </div>
             
