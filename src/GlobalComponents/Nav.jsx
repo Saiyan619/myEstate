@@ -1,8 +1,9 @@
-import { UserButton } from '@clerk/clerk-react';
+import { UserButton, useUser } from '@clerk/clerk-react';
 import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
+  const {user} = useUser()
   return (
     <div className="navbar bg-base-100 ">
     <div className="navbar-start">
@@ -33,7 +34,7 @@ const Nav = () => {
     </div>
     <div className="navbar-center hidden lg:flex">
       <ul className="menu menu-horizontal px-1">
-      <li><Link to="/dashboard"><a>Dashboard</a></Link></li>
+      <li><Link to={`/${user.id}`} ><a>Dashboard</a></Link></li>
       <li><Link to="/post-house"><a>Post a House</a></Link></li>
       </ul>
     </div>

@@ -1,7 +1,20 @@
 import React, { useState } from 'react';
 import { User, Home, MapPin, Phone, Mail, Calendar, BookmarkIcon, Building, ExternalLink, Eye } from 'lucide-react';
+import Nav from '../../GlobalComponents/Nav';
+import { useParams } from 'react-router-dom';
+import GlobalApi from '../../Utils/GlobalApi';
 
 const UserDashboard = () => {
+  const { id } = useParams()
+  
+  const fetchMyDetails = async () => {
+    try {
+      const response = await GlobalApi.getProfileByClerkId(id)
+      console.log(response.data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
   const [userDetails, setUserDetails] = useState({
     _id: '67bcb1114b9041d0fee09c42', 
     clerkId: 'user_2tUtFlLQUmW5Gqpdjbs2YemAuDv', 
@@ -36,6 +49,8 @@ const UserDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
+      <Nav />
+      <button onClick={fetchMyDetails} className='btn'>test api</button>
       <div className="container mx-auto p-4">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           {/* Header */}
