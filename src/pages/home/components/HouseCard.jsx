@@ -8,7 +8,7 @@ const HouseCard = ({ item }) => {
   const baseUrl = 'http://localhost:5000/'
   // console.log(`${baseUrl}${item.images[0]}`)
   return (
-    <div className='flex items-center justify-center flex-wrap gap-20 mt-20'>
+    <div className='flex items-center justify-center flex-wrap gap-20 mt-10'>
       <div className="card bg-base-100 w-72 shadow-xl">
   <figure>
     <img

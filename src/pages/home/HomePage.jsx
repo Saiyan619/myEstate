@@ -57,7 +57,7 @@ const HomePage = () => {
      <Nav />
       <Hero />
       
-      <h2 className='text-4xl font-bold text-center'>Find your Dream house Here</h2>
+      <h2 className='text-4xl font-bold text-center mt-10'>Find your Dream house Here</h2>
 
       <div className='flex flex-col items-center pb-10'>
       <div className='flex gap-4 items-center flex-wrap justify-center'>
