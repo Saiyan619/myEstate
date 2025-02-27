@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import GlobalApi from '../../Utils/GlobalApi'
-import ContactOwnerForm from './ContactOwnerForm'
-import Nav from '../../GlobalComponents/Nav'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import GlobalApi from '../../Utils/GlobalApi';
+import ContactOwnerForm from './ContactOwnerForm';
+import Nav from '../../GlobalComponents/Nav';
+import { Edit } from 'lucide-react';
+import EditHouseModal from './EditHouseModal';
 
 const HouseDetails = () => {
-  const { id } = useParams()
-  const [houseDetails, setHouseDetails] = useState({})
-  const baseUrl = 'http://localhost:5000/'
+  const { id } = useParams();
+  const [houseDetails, setHouseDetails] = useState({});
+  const baseUrl = 'http://localhost:5000/';
 
   useEffect(() => {
-    getHouseDetail()
-  }, [id])
-  
+    getHouseDetail();
+  }, [id]);
+
   // Function to get the details of the house
   const getHouseDetail = async () => {
     try {
@@ -20,53 +22,53 @@ const HouseDetails = () => {
         console.error("getHouseDetails() Error: ID is undefined");
         return;
       }
-      const response = await GlobalApi.getHouseDetails(id)
-      console.log(response.data)
-      setHouseDetails(response.data)
+      const response = await GlobalApi.getHouseDetails(id);
+      console.log(response.data);
+      setHouseDetails(response.data);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
-  console.log(houseDetails?.images)
-  console.log(`${baseUrl}${houseDetails?.images?.[0]}`)
+  // After a successful edit, refresh the house details
+  const refreshDetails = () => {
+    getHouseDetail();
+  };
 
   return (
-    <div className='bg-gray-50'>
+    <div className="container mx-auto px-4 py-8">
       <Nav />
-      <div className="carousel w-full ">
+      
+      {/* Image Gallery */}
+      <div className="carousel w-full rounded-lg overflow-hidden mb-8 max-h-96">
         {houseDetails?.images?.map((item, index) => (
-          <div id={`slide${index + 1}`} key={index} className="carousel-item relative w-full">
-            <img
-              src={`${baseUrl}${item}`}
-              alt={`House image ${index + 1}`}
-              className="w-full object-cover h-96"
+          <div key={index} id={`slide${index}`} className="carousel-item relative w-full">
+            <img 
+              src={`${baseUrl}${item}`} 
+              alt={`House image ${index + 1}`} 
+              className="w-full object-cover h-96" 
             />
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <a 
-                href={`#slide${index === 0 ? houseDetails?.images?.length : index}`} 
-                className="btn btn-circle"
-              >
-                ❮
-              </a>
-              <a 
-                href={`#slide${index === houseDetails?.images?.length - 1 ? 1 : index + 2}`} 
-                className="btn btn-circle"
-              >
-                ❯
-              </a>
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <a href={`#slide${index === 0 ? houseDetails.images.length - 1 : index - 1}`} className="btn btn-circle">❮</a>
+              <a href={`#slide${index === houseDetails.images.length - 1 ? 0 : index + 1}`} className="btn btn-circle">❯</a>
             </div>
           </div>
         ))}
       </div>
-
-      <div className='flex justify-between sm:p-10 flex-wrap'>
-      <div className="p-4">
-        <h1 className="text-3xl font-bold">{houseDetails?.title}</h1>
-        <h1 className="text-2xl font-bold text-blue-600">${houseDetails?.price?.toLocaleString() || 'N/A'}</h1>
-        <h1 className="text-sm font-bold">Owned By: {houseDetails?.owner?.firstName}{" "}{houseDetails?.owner?.lastName}</h1>
-        <p className="text-xl text-gray-600">{houseDetails?.location}</p>
-        <div className="flex gap-4 my-4 flex-wrap">
+      
+      {/* Property details */}
+      <div className="flex justify-between sm:p-10 flex-wrap">
+        <div className="p-4">
+          <h1 className="text-3xl font-bold mb-2">{houseDetails?.title}</h1>
+          <p className="text-2xl text-primary font-semibold mb-4">
+            ${houseDetails?.price?.toLocaleString() || 'N/A'}
+          </p>
+          <p className="mb-4">
+            Owned By: {houseDetails?.owner?.firstName}{" "}{houseDetails?.owner?.lastName}
+          </p>
+          <p className="text-gray-600 mb-4">{houseDetails?.location}</p>
+          
+          <div className="flex gap-4 my-4 flex-wrap">
           <span className="badge badge-lg">
           <img className='w-4 mb-1 mr-2' src="/icons8-bedroom-50.png" alt="icon" />
             {houseDetails?.rooms} Rooms
@@ -75,23 +77,25 @@ const HouseDetails = () => {
           <img className='w-4 mb-1 mr-2' src="/icons8-bathroom-50.png" alt="icon" />
             {houseDetails?.bathrooms} Bathrooms
           </span>
-          <span className="badge badge-lg">${houseDetails?.price?.toLocaleString() || 'N/A'}</span>
         </div>
-
+          
+          {/* Edit button - only show if the current user is the owner */}
+          <div className="mb-6">
+            <EditHouseModal id={id} onUpdate={refreshDetails} />
+          </div>
+          
+          <div className="mb-6">
+            <h2 className="text-xl font-semibold mb-3">Description</h2>
+            <p className="text-gray-700">{houseDetails?.description}</p>
+          </div>
+        </div>
+        
         <div>
-          <span className='text-xl font-semibold'>Description</span>
-          <p className="my-4">{houseDetails?.description}</p>
+          <ContactOwnerForm ownerDetails={houseDetails?.owner} />
         </div>
       </div>
-
-
-      <div>
-        <ContactOwnerForm ownerEmail={houseDetails?.owner?.email}/>
-      </div>
-      </div>
-      
     </div>
-  )
-}
+  );
+};
 
-export default HouseDetails
+export default HouseDetails;

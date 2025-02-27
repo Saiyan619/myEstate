@@ -13,6 +13,7 @@ const getProfileByClerkId = (id)=> axiosClient.get(`user/profile/${id}`)
 const getAllHouse = () => axiosClient.get('/house/getHouse');
 const createHouse = (data) => axiosClient.post('house/createHouse', data)
 const getHouseDetails = (id) => axiosClient.get(`house/getHouse/${id}`)
+const editHouse = (id, data) => axiosClient.patch(`house/editHouse/${id}`, data);
 
 export default {
     createUser,
@@ -20,5 +21,6 @@ export default {
     getProfileByClerkId,
     getAllHouse,
     createHouse,
-    getHouseDetails
+    getHouseDetails,
+    editHouse
 }

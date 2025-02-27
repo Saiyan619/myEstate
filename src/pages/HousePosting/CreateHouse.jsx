@@ -54,6 +54,7 @@ const CreateHouse = () => {
   return (
     <div>
       <Nav />
+    
       <div className="flex items-center justify-center flex-col gap-5 p-10">
         <div className="text-center">
           <span className="text-4xl font-bold">Post A House</span>
