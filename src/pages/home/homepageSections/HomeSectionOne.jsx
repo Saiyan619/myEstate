@@ -3,7 +3,7 @@ import React from 'react'
 const HomeSectionOne = () => {
   return (
     <div className='bg-blue-950 text-white pt-20'>
-          <div className='flex items-center justify-center gap-64'>
+          <div className='flex items-center justify-center p-2 flex-col md:flex-row gap-10 lg:gap-64'>
               <h3 className='text-4xl font-semibold '>We make it easy for <br /> <span className='text-purple-700 '>tenants</span> and <span className='text-purple-700 '>landlord</span></h3>
               <p className='text-gray-200 text-sm'>
                   Wheter its selling your current home, getting <br /> financing or buying a new home, we make it easy and <br /> effienct.
@@ -13,7 +13,7 @@ const HomeSectionOne = () => {
 
           <div className="flex items-center justify-center mt-32 flex-col pb-20">
               <span className='text-2xl font-bold'>Our Numbers Dont Lie</span>
-          <div className="stats bg-transparent text-white mt-12">
+          <div className="stats bg-transparent text-white mt-12 flex flex-col sm:flex-row">
   <div className="stat place-items-center">
     <div className="stat-value">7.4%</div>
     <div className="stat-desc text-gray-400">↗︎ Property Return Value</div>
@@ -30,8 +30,6 @@ const HomeSectionOne = () => {
   </div>
 </div>
           </div>
-
-        di
           
 
           <div className="hero bg-white min-h-1/2 pt-20 pb-20">
