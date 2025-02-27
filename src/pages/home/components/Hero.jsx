@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
@@ -16,7 +17,7 @@ const Hero = () => {
       <p className="mb-5">
       Seamlessly buy, rent, or sell properties with confidence. Experience hassle-free transactions, trusted listings, and expert support every step of the way.
       </p>
-      <button className="btn btn-primary">Get Started</button>
+                        <Link to="/post-house"><button className='btn btn-primary'>Get Started</button></Link>
     </div>
   </div>
 </div>

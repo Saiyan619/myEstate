@@ -48,7 +48,7 @@ const HouseCard = ({ item }) => {
   </div>
                 </div>
 
-              <Link to={`/user/${item?.owner?._id}`}>
+              <Link to={`/user/${item?.owner?.clerkId}`}>
               <span className='text-xs capitalize cursor-pointer'>{item?.owner?.firstName}{" "}{item?.owner?.lastName}</span>
               </Link>  
               </div>

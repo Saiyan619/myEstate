@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { User, Home, MapPin, Phone, Mail, Calendar, BookmarkIcon, Building, ExternalLink, Eye } from 'lucide-react';
 import Nav from '../../GlobalComponents/Nav';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import GlobalApi from '../../Utils/GlobalApi';
 import UserPropertyModal from './userProperty/UserPropertyModal';
 
@@ -23,21 +23,7 @@ const UserDashboard = () => {
     fetchMyDetails()
   }, [id])
   
-  // const [userDetails, setUserDetails] = useState({
-  //   _id: '67bcb1114b9041d0fee09c42', 
-  //   clerkId: 'user_2tUtFlLQUmW5Gqpdjbs2YemAuDv', 
-  //   __v: 2, 
-  //   createdAt: '2025-02-24T17:49:04.783Z', 
-  //   email: 'arokoyujr10@gmail.com',
-  //   firstName: 'arokoyu',
-  //   lastName: 'olaniyi',
-  //   location: ' ',
-  //   phone: 0,
-  //   postedHouses: ['67bcc1676b3dbfa2eff1428e', '67bcc1acf809eb3a9d6c6e79'],
-  //   savedHouses: [],
-  //   updatedAt: '2025-02-24T17:49:04.784Z',
-  //   userId: 'user_2tUtFlLQUmW5Gqpdjbs2YemAuDv'
-  // });
+
 
   // Format date function
   const formatDate = (dateString) => {
@@ -58,7 +44,6 @@ const UserDashboard = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <Nav />
-      <button onClick={fetchMyDetails} className='btn'>test api</button>
       <div className="container mx-auto p-4">
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           {/* Header */}
@@ -127,6 +112,7 @@ const UserDashboard = () => {
                         <div>
                           <h4 className="text-sm text-gray-500">Saved Houses</h4>
                           <p className="text-lg font-semibold">{userDetails?.savedHouses?.length ?? 0}</p>
+                    
                         </div>
                       </div>
                     </div>
@@ -136,9 +122,13 @@ const UserDashboard = () => {
                   <div className="mt-6">
                     <div className="flex justify-between items-center mb-3">
                       <h4 className="text-md font-semibold">Your Properties</h4>
+                      <div className='flex gap-5'>
+                        <Link to="/post-house"><button className='btn'>Create New Property</button></Link>
                       <UserPropertyModal id={id} postedHouses={userDetails?.postedHouses} />
+                    </div>
                       </div>
                     
+                   
              
                   </div>
                 </div>

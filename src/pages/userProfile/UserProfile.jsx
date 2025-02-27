@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom'
 import GlobalApi from '../../Utils/GlobalApi'
 import { useUser } from '@clerk/clerk-react'
 import { MapPin, Phone, Mail, Home, Bookmark, Calendar, Edit, User } from 'lucide-react';
+import Nav from '../../GlobalComponents/Nav'
+import UserProfileModal from './UserProfileModal'
 
 
 
@@ -24,7 +26,7 @@ const UserProfile = () => {
             if (!id) {
                 console.log("id does not exist")
             }
-            const response = await GlobalApi.getUserById(id)
+            const response = await GlobalApi.getProfileByClerkId(id)
             console.log(response.data)
             setuserDetails(response.data)
             setPermit()
@@ -52,6 +54,7 @@ const UserProfile = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
+      <Nav />
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           {/* Profile Header */}
@@ -71,10 +74,10 @@ const UserProfile = () => {
                 </p>
                 <p className="text-sm text-gray-500 mt-1">Member since {formatDate(userDetails.createdAt)}</p>
               </div>
-              <button className="mt-4 md:mt-0 flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
+              {/* <button className="btn  btn-secondary mt-4 md:mt-0 flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
                 <Edit size={16} className="mr-1" />
                 Edit Profile
-              </button>
+              </button> */}
             </div>
           </div>
 
@@ -119,6 +122,7 @@ const UserProfile = () => {
                   </div>
                   <p className="text-3xl font-bold text-blue-600">{userDetails?.postedHouses?.length}</p>
                   <p className="text-sm text-blue-700 mt-1">Active listings</p>
+                <UserProfileModal id={id} postedHouses={userDetails?.postedHouses} />
                 </div>
                 <div className="bg-purple-50 p-4 rounded-lg border border-purple-100">
                   <div className="flex items-center mb-2">
@@ -156,7 +160,7 @@ const UserProfile = () => {
           </div>
 
           {/* Posted Properties */}
-          {userDetails?.postedHouses?.length > 0 && (
+          {/* {userDetails?.postedHouses?.length > 0 && (
             <div className="bg-white rounded-lg shadow-md p-6 mt-6">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-semibold text-gray-800">Your Properties</h2>
@@ -177,7 +181,7 @@ const UserProfile = () => {
                 ))}
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
