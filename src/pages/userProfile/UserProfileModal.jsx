@@ -19,7 +19,7 @@ const UserProfileModal = ({ id, postedHouses }) => {
   return (
     <div>
       <div>
-      <button className="btn" onClick={() => {
+      <button className="btn btn-primary mt-2" onClick={() => {
         fetchProperties();
         document.getElementById('my_modal_4').showModal();
       }}>

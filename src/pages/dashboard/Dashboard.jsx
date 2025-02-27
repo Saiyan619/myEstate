@@ -123,7 +123,7 @@ const UserDashboard = () => {
                     <div className="flex justify-between items-center mb-3">
                       <h4 className="text-md font-semibold">Your Properties</h4>
                       <div className='flex gap-5'>
-                        <Link to="/post-house"><button className='btn'>Create New Property</button></Link>
+                        <Link to="/post-house"><button className='btn btn-primary'>Create New Property</button></Link>
                       <UserPropertyModal id={id} postedHouses={userDetails?.postedHouses} />
                     </div>
                       </div>
