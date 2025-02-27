@@ -39,8 +39,10 @@ const HouseDetails = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Nav />
+    <div>
+            <Nav />
+
+        <div className="container mx-auto px-4 py-8">
       
       {/* Image Gallery */}
       <div className="carousel w-full rounded-lg overflow-hidden mb-8 max-h-96">
@@ -84,7 +86,7 @@ const HouseDetails = () => {
           
           {/* Edit button - only show if the current user is the owner */}
           <div className="mb-6">
-            <EditHouseModal id={id} onUpdate={refreshDetails} />
+            <EditHouseModal clerkId={houseDetails?.owner?.clerkId} ownerId={user.id} id={id} onUpdate={refreshDetails} />
           </div>
 
           <div>
@@ -102,6 +104,7 @@ const HouseDetails = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

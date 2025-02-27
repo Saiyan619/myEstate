@@ -3,7 +3,7 @@ import GlobalApi from "../../Utils/GlobalApi";
 import { useUser } from "@clerk/clerk-react";
 import { Edit } from "lucide-react";
 
-const EditHouseModal = ({ id }) => {
+const EditHouseModal = ({ id, ownerId, clerkId }) => {
   const { user } = useUser();
   const [houseDetails, setHouseDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -48,9 +48,12 @@ const EditHouseModal = ({ id }) => {
         return;
       }
       setLoading(true);
-      const response = await GlobalApi.getHouseDetails(id);
-      setHouseDetails(response.data);
-      console.log("Loaded house details:", response.data);
+      if (id && ownerId && clerkId === ownerId) { 
+        const response = await GlobalApi.getHouseDetails(id);
+        setHouseDetails(response.data);
+        console.log("Loaded house details:", response.data);
+      }
+     
     } catch (error) {
       console.error("Error fetching house details:", error);
     } finally {
