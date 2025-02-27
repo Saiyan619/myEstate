@@ -1,35 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { User, Home, MapPin, Phone, Mail, Calendar, BookmarkIcon, Building, ExternalLink, Eye } from 'lucide-react';
 import Nav from '../../GlobalComponents/Nav';
 import { useParams } from 'react-router-dom';
 import GlobalApi from '../../Utils/GlobalApi';
+import UserPropertyModal from './userProperty/UserPropertyModal';
 
 const UserDashboard = () => {
   const { id } = useParams()
+    const [userDetails, setUserDetails] = useState({})
   
   const fetchMyDetails = async () => {
     try {
       const response = await GlobalApi.getProfileByClerkId(id)
       console.log(response.data)
+      setUserDetails(response.data)
     } catch (error) {
       console.error(error)
     }
   }
-  const [userDetails, setUserDetails] = useState({
-    _id: '67bcb1114b9041d0fee09c42', 
-    clerkId: 'user_2tUtFlLQUmW5Gqpdjbs2YemAuDv', 
-    __v: 2, 
-    createdAt: '2025-02-24T17:49:04.783Z', 
-    email: 'arokoyujr10@gmail.com',
-    firstName: 'arokoyu',
-    lastName: 'olaniyi',
-    location: ' ',
-    phone: 0,
-    postedHouses: ['67bcc1676b3dbfa2eff1428e', '67bcc1acf809eb3a9d6c6e79'],
-    savedHouses: [],
-    updatedAt: '2025-02-24T17:49:04.784Z',
-    userId: 'user_2tUtFlLQUmW5Gqpdjbs2YemAuDv'
-  });
+
+  useEffect(() => {
+    fetchMyDetails()
+  }, [id])
+  
+  // const [userDetails, setUserDetails] = useState({
+  //   _id: '67bcb1114b9041d0fee09c42', 
+  //   clerkId: 'user_2tUtFlLQUmW5Gqpdjbs2YemAuDv', 
+  //   __v: 2, 
+  //   createdAt: '2025-02-24T17:49:04.783Z', 
+  //   email: 'arokoyujr10@gmail.com',
+  //   firstName: 'arokoyu',
+  //   lastName: 'olaniyi',
+  //   location: ' ',
+  //   phone: 0,
+  //   postedHouses: ['67bcc1676b3dbfa2eff1428e', '67bcc1acf809eb3a9d6c6e79'],
+  //   savedHouses: [],
+  //   updatedAt: '2025-02-24T17:49:04.784Z',
+  //   userId: 'user_2tUtFlLQUmW5Gqpdjbs2YemAuDv'
+  // });
 
   // Format date function
   const formatDate = (dateString) => {
@@ -128,47 +136,10 @@ const UserDashboard = () => {
                   <div className="mt-6">
                     <div className="flex justify-between items-center mb-3">
                       <h4 className="text-md font-semibold">Your Properties</h4>
-                      <button className="text-blue-600 text-sm hover:text-blue-800 flex items-center">
-                        View all <ExternalLink size={14} className="ml-1" />
-                      </button>
-                    </div>
+                      <UserPropertyModal id={id} postedHouses={userDetails?.postedHouses} />
+                      </div>
                     
-                    {userDetails?.postedHouses?.length > 0 ? (
-                      <div className="space-y-3">
-                        {userDetails.postedHouses.map((id, index) => (
-                          <div key={index} className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition duration-200">
-                            <div className="p-4 flex items-center justify-between">
-                              <div className="flex items-center">
-                                <div className="h-12 w-12 rounded bg-blue-50 flex items-center justify-center mr-4">
-                                  <Home size={24} className="text-blue-500" />
-                                </div>
-                                <div>
-                                  <h5 className="font-medium text-gray-800">Property #{index + 1}</h5>
-                                  <div className="flex items-center">
-                                    <span className="text-xs text-gray-500 font-mono mr-2">{id}</span>
-                                    <span className="text-xs text-gray-400">• Updated {getRandomTimeAgo()}</span>
-                                  </div>
-                                </div>
-                              </div>
-                              <button className="px-3 py-1 bg-blue-50 hover:bg-blue-100 text-blue-600 rounded text-sm flex items-center transition-colors">
-                                <Eye size={14} className="mr-1" />
-                                View Details
-                              </button>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="bg-white p-6 rounded-lg border border-gray-200 text-center">
-                        <div className="w-16 h-16 bg-gray-100 mx-auto rounded-full flex items-center justify-center mb-3">
-                          <Home className="text-gray-400" size={28} />
-                        </div>
-                        <p className="text-gray-500">You haven't posted any properties yet</p>
-                        <button className="mt-3 px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors">
-                          Add Your First Property
-                        </button>
-                      </div>
-                    )}
+             
                   </div>
                 </div>
               </div>
