@@ -14,7 +14,7 @@ const getAllHouse = () => axiosClient.get('/house/getHouse');
 const createHouse = (data) => axiosClient.post('house/createHouse', data)
 const getHouseDetails = (id) => axiosClient.get(`house/getHouse/${id}`)
 const editHouse = (id, data) => axiosClient.patch(`house/editHouse/${id}`, data);
-
+const deleteHouse = (id)=>axiosClient.delete(`house/deleteHouse/${id}`)
 export default {
     createUser,
     getUserById,
@@ -22,5 +22,6 @@ export default {
     getAllHouse,
     createHouse,
     getHouseDetails,
-    editHouse
+    editHouse,
+    deleteHouse
 }

@@ -5,8 +5,11 @@ import ContactOwnerForm from './ContactOwnerForm';
 import Nav from '../../GlobalComponents/Nav';
 import { Edit } from 'lucide-react';
 import EditHouseModal from './EditHouseModal';
+import DeleteHouse from './DeleteHouse';
+import { useUser } from '@clerk/clerk-react';
 
 const HouseDetails = () => {
+  const { user } = useUser();
   const { id } = useParams();
   const [houseDetails, setHouseDetails] = useState({});
   const baseUrl = 'http://localhost:5000/';
@@ -82,6 +85,10 @@ const HouseDetails = () => {
           {/* Edit button - only show if the current user is the owner */}
           <div className="mb-6">
             <EditHouseModal id={id} onUpdate={refreshDetails} />
+          </div>
+
+          <div>
+            <DeleteHouse clerkId={houseDetails?.owner?.clerkId} ownerId={user.id} id={id} />
           </div>
           
           <div className="mb-6">
