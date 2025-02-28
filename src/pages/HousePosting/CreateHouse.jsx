@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Nav from "../../GlobalComponents/Nav";
 import GlobalApi from "../../Utils/GlobalApi";
 import { useUser } from "@clerk/clerk-react";
+import { ToastContainer } from "react-toastify";
+import { useGlobalContext } from "../../Utils/Context";
 
 const CreateHouse = () => {
   const { user } = useUser();
+  const { postNotify, postNotifyError, setLoader, loader } = useGlobalContext();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
@@ -24,8 +27,10 @@ const CreateHouse = () => {
   // console.log(user)
   // console.log(postedBy)
 
+
   const createNewHouse = async () => {
     try {
+      setLoader(true)
       if (user) {
         const formData = new FormData();
       formData.append("title", title);
@@ -43,12 +48,17 @@ const CreateHouse = () => {
     }
       const response = await GlobalApi.createHouse(formData);
 
+        setLoader(false)
+        postNotify()
       console.log(response.data);
       } else {
+        setLoader(false)
         console.log("user does not exist")
       }
       
     } catch (error) {
+      setLoader(false)
+      postNotifyError()
       console.log(error);
     }
   };
@@ -56,7 +66,19 @@ const CreateHouse = () => {
   return (
     <div>
       <Nav />
-    
+
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
       <div className="flex items-center justify-center flex-col gap-5 p-10">
         <div className="text-center">
           <span className="text-4xl font-bold">Post A House</span>
@@ -169,7 +191,10 @@ const CreateHouse = () => {
         </div>
 
       <div>
-      <button onClick={createNewHouse} className="btn btn-primary">Create House</button>
+          <button onClick={createNewHouse} className="btn btn-primary">
+          <span className={`${loader ? "loading" : ''} loading-spinner`}></span>
+            Create House
+          </button>
       </div>
       </div>
       

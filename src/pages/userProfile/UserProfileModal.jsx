@@ -30,7 +30,7 @@ const UserProfileModal = ({ id, postedHouses }) => {
         <div className="modal-box w-11/12 max-w-5xl"> 
           <h3 className="font-bold text-lg">Your Properties</h3>
 
-                  <div className='p-4'>
+                  <div className='p-4 flex gap-4'>
                   {properties?.postedHouses?.length > 0 ?
                       (properties?.postedHouses?.map((item, index) => {
                           return (<div className='' key={index}> <UserProfilePropertyCards item={item} /> </div>)

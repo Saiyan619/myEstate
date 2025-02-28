@@ -5,6 +5,12 @@ import UserPropertyCards from './UserPropertyCards';
 const UserPropertyModal = ({ id, postedHouses }) => {
   const [properties, setProperties] = useState([]);
 
+  const truncateText = (text, maxLength) => {
+    return text.length > maxLength 
+      ? `${text.substring(0, maxLength)}...` 
+      : text;
+  };
+
   const fetchProperties = async () => {
     try {
       if (!postedHouses || postedHouses.length === 0) return;
@@ -29,7 +35,7 @@ const UserPropertyModal = ({ id, postedHouses }) => {
         <div className="modal-box w-11/12 max-w-5xl"> 
           <h3 className="font-bold text-lg">Your Properties</h3>
 
-                  <div className='p-4'>
+                  <div className='p-4 flex  gap-5'>
                   {properties?.postedHouses?.length > 0 ?
                       (properties?.postedHouses?.map((item, index) => {
                           return (<div className='' key={index}> <UserPropertyCards item={item} /> </div>)

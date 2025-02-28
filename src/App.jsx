@@ -8,13 +8,15 @@ import HomePage from './pages/home/HomePage';
 import CreateHouse from './pages/HousePosting/CreateHouse';
 import HouseDetails from './pages/houseDetails/HouseDetails';
 import UserProfile from './pages/userProfile/UserProfile';
+import ContextProvider from './Utils/Context';
 
 
 const App = () => {
 
 
   return (
-    <Routes>
+    <ContextProvider>
+       <Routes>
       
       {/* Public Routes */}
       <Route path="/sign-in/*" element={<SignIn />} />
@@ -74,6 +76,7 @@ const App = () => {
       />
      
     </Routes>
+   </ContextProvider>
   );
 };
 

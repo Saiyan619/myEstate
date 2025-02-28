@@ -7,6 +7,7 @@ import GlobalApi from '../../Utils/GlobalApi';
 import HomeSectionOne from './homepageSections/homeSectionOne';
 import Footer from './Footer';
 import { useUser } from '@clerk/clerk-react';
+import SkeletonHomeCard from './components/SkeletonHomeCard';
 
 const HomePage = () => {
   const { user } = useUser();
@@ -59,14 +60,24 @@ const HomePage = () => {
       
       <h2 className='text-4xl font-bold text-center mt-10'>Find your Dream house Here</h2>
 
+
+      {!allHouses || allHouses.length === 0 ?
+           (  <div className='flex gap-4 items-center flex-wrap justify-center'>
+            <SkeletonHomeCard />
+            <SkeletonHomeCard />
+            <SkeletonHomeCard />
+          </div>)
+        :
+
+(<div className='flex gap-4 items-center flex-wrap justify-center'>
+  {allHouses.map((item, index) => {
+    return <HouseCard key={index} item={item} />
+  })}
+    </div>)
+      }
+    
       <div className='flex flex-col items-center pb-10'>
-      <div className='flex gap-4 items-center flex-wrap justify-center'>
-      {allHouses.map((item, index) => {
-        return <HouseCard key={index} item={item} />
-      })}
-
-
-      </div>
+     
 
       <div className='text-center mt-10'>
         <button onClick={createAUser} className='btn btn-primary'>Browse more Properties</button>
