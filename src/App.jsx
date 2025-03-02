@@ -9,6 +9,7 @@ import CreateHouse from './pages/HousePosting/CreateHouse';
 import HouseDetails from './pages/houseDetails/HouseDetails';
 import UserProfile from './pages/userProfile/UserProfile';
 import ContextProvider from './Utils/Context';
+import HouseHomePage from './pages/houseHomepage/HouseHomePage';
 
 
 const App = () => {
@@ -71,6 +72,15 @@ const App = () => {
         element={
           <RequireAuth>
             <UserProfile />
+          </RequireAuth>
+        }
+      />  
+      
+        <Route
+        path="/house"
+        element={
+          <RequireAuth>
+            <HouseHomePage />
           </RequireAuth>
         }
       />

@@ -23,8 +23,8 @@ const DeleteHouse = ({ id, ownerId, clerkId }) => {
 <button className="btn btn-error mb-5" onClick={()=>document.getElementById('my_modal_6').showModal()}>Delete House</button>
 <dialog id="my_modal_6" className="modal modal-bottom sm:modal-middle">
   <div className="modal-box">
-    <h3 className="font-bold text-lg">Hello!</h3>
-    <p className="py-4">Press ESC key or click the button below to close</p>
+    <h3 className="font-bold text-lg">Are you sure?</h3>
+    <p className="py-4">You cannot retrieve property once deleted.</p>
                   <div className="modal-action">
                   <button onClick={deleteAHouse} className="btn btn-error">Delete</button>
 

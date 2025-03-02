@@ -8,6 +8,7 @@ import HomeSectionOne from './homepageSections/homeSectionOne';
 import Footer from './Footer';
 import { useUser } from '@clerk/clerk-react';
 import SkeletonHomeCard from './components/SkeletonHomeCard';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const { user } = useUser();
@@ -78,9 +79,11 @@ const HomePage = () => {
     
       <div className='flex flex-col items-center pb-10'>
      
-
-      <div className='text-center mt-10'>
-        <button onClick={createAUser} className='btn btn-primary'>Browse more Properties</button>
+        <div className='text-center mt-10'>
+          <Link to={'/house'}>
+          <button onClick={createAUser} className='btn btn-primary'>Browse more Properties</button>
+          </Link>
+       
       </div>
      </div>
 
