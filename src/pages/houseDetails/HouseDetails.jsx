@@ -67,8 +67,9 @@ const HouseDetails = () => {
           <h1 className="text-3xl font-bold mb-2">{houseDetails?.title}</h1>
           <p className="text-2xl text-primary font-semibold mb-4">
             ${houseDetails?.price?.toLocaleString() || 'N/A'}
-          </p>
-          <p className="mb-4">
+            </p>
+            <p>{houseDetails?.type}</p>
+          <p className="mb-4 mt-4">
             Owned By: {houseDetails?.owner?.firstName}{" "}{houseDetails?.owner?.lastName}
           </p>
           <p className="text-gray-600 mb-4">{houseDetails?.location}</p>
