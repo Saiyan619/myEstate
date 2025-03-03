@@ -4,16 +4,41 @@ import GlobalApi from '../../Utils/GlobalApi'
 import HouseCard from '../home/components/HouseCard'
 import SkeletonHomeCard from '../home/components/SkeletonHomeCard'
 import HouseFilterModal from './HouseFilterModal'
+import Nav from '../../GlobalComponents/Nav'
+import FilteredCard from './filteredCard'
 
 const HouseHomePage = () => {
 
+        const [filterHouseCards, setFilterHouseCards] = useState([])
     const [allHouses, setAllHouses] = useState([])
+     const [title, settitle] = useState("")
+        const [location, setLocation] = useState("")
+        const [type, setType] = useState("")
+        const [minPrice, setMinPrice] = useState()
+        const [maxPrice, setMaxPrice] = useState()
     
     useEffect(() => {
       getHouseAll()
     }, [])
     
-    
+    const getFilterHouse = async () => {
+        try {
+            const filterData = {
+                title: title,
+                location: location,
+                type: type,
+                minPrice: minPrice,
+                maxPrice: maxPrice
+            }
+            const response = await GlobalApi.filterHouse(filterData)
+            setFilterHouseCards(response.data)
+            document.getElementById('my_modal_5').close() // Close modal after successful filter
+            console.log(response.data)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     const getHouseAll = async () => {
       try {
         const response = await GlobalApi.getAllHouse()
@@ -24,16 +49,35 @@ const HouseHomePage = () => {
       }
     }
   return (
-      <div className='flex flex-col justify-center items-center p-4'>
+      <div>
+          <Nav />
+            <div className='flex flex-col justify-center items-center p-4'>
           
-          <div>
+          <div className='flex items-center justify-center flex-col'>
               <h1 className='text-3xl'>Find More Properties Here</h1>
-              <HouseFilterModal />
+              <HouseFilterModal
+                  getFilterHouse={getFilterHouse}
+                  title={title}
+                  location={location}
+                  type={type}
+                  minPrice={minPrice}
+                  maxPrice={maxPrice}
+                  settitle={settitle}
+                  setLocation={setLocation}
+                  setType={setType}
+                  setMinPrice={setMinPrice}
+                  setMaxPrice={setMaxPrice}
+              />
           </div>
           
           <div>
+
+                  {filterHouseCards?.map((index, item) => {
+                      return <FilteredCard key={index} item={item} />
+                  })}
+
           {!allHouses || allHouses.length === 0 ?
-           (  <div className='flex gap-4 items-center flex-wrap justify-center'>
+           (  <div className='flex gap-4 items-center flex-wrap justify-center mt-4'>
             <SkeletonHomeCard />
             <SkeletonHomeCard />
             <SkeletonHomeCard />
@@ -48,6 +92,7 @@ const HouseHomePage = () => {
       }
       </div>
     
+    </div>
     </div>
   )
 }

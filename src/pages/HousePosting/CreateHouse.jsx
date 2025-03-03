@@ -133,11 +133,11 @@ theme="light"
   </div>
   <select onChange={(e) => setType(e.target.value)} value={type} className="select select-bordered">
               <option disabled selected>Pick one</option>
-    <option>bungalow</option>
-    <option>duplex</option>
-    <option>mansion</option>
-    <option>penthouse</option>
-    <option>apartment</option>
+              <option>Bungalow</option>
+                <option>Duplex</option>
+                <option>Mansion</option>
+                <option>Penthouse</option>
+                <option>Apartment</option>
   </select>
   <div className="label">
   </div>
