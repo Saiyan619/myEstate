@@ -1,19 +1,25 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const FilteredCard = ({item}) => {
 
   // console.log(item.images[0])
   console.log(item?.owner?._id)
   const baseUrl = 'http://localhost:5000/'
-  // console.log(`${baseUrl}${item.images[0]}`)
-  return (
+  if (item?.images) {
+    console.log(`${baseUrl}${item?.images[0]}`);
+} else {
+    console.log("No images available for this item.");
+}  return (
     <div className='flex items-center justify-center flex-wrap gap-20 mt-10'>
       <div className="card bg-base-100 w-72 shadow-xl">
   <figure>
-    <img
+    {/* <img
       src=  {`${baseUrl}${item?.images[0]}`}
-      alt="Shoes" />
-        
+      alt="Shoes" /> */}
+          {item?.images?.length > 0 && (
+            <img src={`${baseUrl}${item?.images[0]}`} alt="House" />
+          )}
   </figure>
   <div className="card-body">
     <div className='flex items-center'>
@@ -23,19 +29,19 @@ const FilteredCard = ({item}) => {
 </svg>
           </div>
           
-          <h2 className="card-title uppercase font-bold">{item.title}</h2>
+          <h2 className="card-title uppercase font-bold">{item?.title}</h2>
           <div className="badge badge-secondary">NEW</div>
-          <p>{item.location}</p>
+          <p>{item?.location}</p>
     <div className="card-actions flex justify-between flex-col">
             {/* <button className="btn btn-primary">Buy Now</button> */}
               <div className='flex items-center gap-1'>
                 <img className='w-4' src="./icons8-bedroom-50.png" alt="icon" />
-                <span className='text-sm'>{item.bathrooms} Bedrooms</span>
+                <span className='text-sm'>{item?.bathrooms} Bedrooms</span>
               </div>
 
               <div className='flex items-center gap-1'>
                 <img className='w-4' src="./icons8-bathroom-50.png" alt="icon" />
-              <span className='text-sm'>{item.rooms} Bathrooms</span>
+              <span className='text-sm'>{item?.rooms} Bathrooms</span>
             </div>
 
             <div className='mt-4'>
@@ -53,7 +59,7 @@ const FilteredCard = ({item}) => {
               </div>
           </div>
             
-            <Link to={`/house/${item._id}`}>
+            <Link to={`/house/${item?._id}`}>
               <button className='btn'> Check House</button>
             </Link>
     </div>

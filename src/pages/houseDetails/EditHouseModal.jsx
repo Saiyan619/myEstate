@@ -72,6 +72,8 @@ const EditHouseModal = ({ id, ownerId, clerkId }) => {
         return;
       }
 
+      if (id && ownerId && clerkId === ownerId) {
+        
       const formData = new FormData();
       formData.append("title", title);
       formData.append("description", description);
@@ -95,6 +97,10 @@ const EditHouseModal = ({ id, ownerId, clerkId }) => {
       
       // You might want to trigger a refresh of the parent component
       // This could be done via a callback prop if needed
+      }else{
+        console.log("You are not the owner of this house");
+      }
+
     } catch (error) {
       console.error("Error updating house:", error);
     }

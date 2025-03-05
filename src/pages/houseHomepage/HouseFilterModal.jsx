@@ -1,8 +1,6 @@
 import React from 'react'
-import { useState } from 'react'
-import GlobalApi from '../../Utils/GlobalApi'
 
-const HouseFilterModal = ({getFilterHouse, filterHouseCards,title,
+const HouseFilterModal = ({getFilterHouse,title,
     location,
     type,
     minPrice,

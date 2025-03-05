@@ -30,13 +30,16 @@ const HouseHomePage = () => {
         maxPrice: maxPrice,
       };
       const response = await GlobalApi.filterHouse(filterData);
-      setFilterHouseCards(response.data);
       document.getElementById("my_modal_5").close(); // Close modal after successful filter
       console.log(response.data);
+      setFilterHouseCards(response.data);
+
     } catch (error) {
       console.error(error);
     }
   };
+
+console.log(filterHouseCards)
 
   const getHouseAll = async () => {
     try {
@@ -70,7 +73,9 @@ const HouseHomePage = () => {
 
         <div>
           {filterHouseCards?.map((index, item) => {
-            return <FilteredCard key={index} item={item} />;
+            return <div key={index}>
+              <FilteredCard item={item} />;
+            </div>
           })}
 
           {!allHouses || allHouses.length === 0 ? (
