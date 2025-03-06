@@ -86,7 +86,6 @@ theme="light"
         </div>
       <div className="flex flex-col items-center gap-4 mt-7 ">
        
-          {/* <input onChange={(e) => setTitle(e.target.value)} type="text" placeholder="Title" className="input input-bordered w-full max-w-xs" /> */}
        
           <label className="form-control w-full max-w-xs">
   <div className="label">
@@ -97,7 +96,6 @@ theme="light"
   </div>
 </label>
      
-          {/* <input onChange={(e) => setDescription(e.target.value)} type="text" placeholder="Description" className="input input-bordered w-full max-w-xs" /> */}
         
 
               <label className="form-control w-full max-w-xs">
@@ -110,7 +108,6 @@ theme="light"
 </label> 
          
          
-          {/* <input onChange={(e) => setPrice(e.target.value)} type="number" placeholder="Price" className="input input-bordered w-full max-w-xs" /> */}
         
           
           <label className="form-control w-full max-w-xs">
@@ -123,7 +120,6 @@ theme="light"
 </label> 
          
           
-          {/* <input onChange={(e) => setLocation(e.target.value)} type="text" placeholder="setLocation" className="input input-bordered w-full max-w-xs" /> */}
         
           
 
@@ -143,7 +139,6 @@ theme="light"
   </div>
           </label>
           
-          {/* <input onChange={(e) => setType(e.target.value)} type="text" placeholder="Type" className="input input-bordered w-full max-w-xs" /> */}
        
           <label className="form-control w-full max-w-xs">
   <div className="label">
@@ -154,7 +149,6 @@ theme="light"
   </div>
 </label> 
        
-          {/* <input onChange={(e) => setRooms(e.target.value)} type="number" placeholder="Rooms" className="input input-bordered w-full max-w-xs" /> */}
       
           
           <label className="form-control w-full max-w-xs">
@@ -166,7 +160,6 @@ theme="light"
   </div>
 </label> 
       
-          {/* <input onChange={(e) => setBathrooms(e.target.value)} type="number" placeholder="Bathrooms" className="input input-bordered w-full max-w-xs" /> */}
       
           <label className="form-control w-full max-w-xs">
   <div className="label">
@@ -177,7 +170,6 @@ theme="light"
   </div>
 </label> 
       
-          {/* <input onChange={handleImages} type="file" className="file-input file-input-bordered w-full max-w-xs" multiple /> */}
       
           
         <label className="form-control">
