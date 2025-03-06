@@ -74,10 +74,7 @@ const UserProfile = () => {
                 </p>
                 <p className="text-sm text-gray-500 mt-1">Member since {formatDate(userDetails.createdAt)}</p>
               </div>
-              {/* <button className="btn  btn-secondary mt-4 md:mt-0 flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
-                <Edit size={16} className="mr-1" />
-                Edit Profile
-              </button> */}
+
             </div>
           </div>
 
@@ -159,29 +156,7 @@ const UserProfile = () => {
             </div>
           </div>
 
-          {/* Posted Properties */}
-          {/* {userDetails?.postedHouses?.length > 0 && (
-            <div className="bg-white rounded-lg shadow-md p-6 mt-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-semibold text-gray-800">Your Properties</h2>
-                <button className="text-blue-600 hover:text-blue-800">View All</button>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {userDetails.postedHouses.map((house, index) => (
-                  <div key={house} className="border border-gray-200 rounded-lg overflow-hidden flex">
-                    <div className="w-24 h-24 bg-gray-200 flex items-center justify-center">
-                      <Home size={32} className="text-gray-400" />
-                    </div>
-                    <div className="p-3 flex-1">
-                      <p className="font-medium">Property #{index + 1}</p>
-                      <p className="text-sm text-gray-500 truncate">{house}</p>
-                      <button className="text-sm text-blue-600 hover:text-blue-800 mt-1">View Details</button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )} */}
+       
         </div>
       </div>
     </div>
