@@ -4,6 +4,7 @@ import Nav from '../../GlobalComponents/Nav';
 import { Link, useParams } from 'react-router-dom';
 import GlobalApi from '../../Utils/GlobalApi';
 import UserPropertyModal from './userProperty/UserPropertyModal';
+import EditProfileModal from './EditProfileModal';
 
 const UserDashboard = () => {
   const { id } = useParams()
@@ -80,6 +81,7 @@ const UserDashboard = () => {
                         <span className="text-gray-600">{userDetails?.phone ? userDetails.phone : 'No phone provided'}</span>
                       </div>
                     </div>
+                    <EditProfileModal userDetails={userDetails} fetchMyDetails={fetchMyDetails} />
                   </div>
                 </div>
               </div>

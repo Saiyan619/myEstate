@@ -16,10 +16,12 @@ const getHouseDetails = (id) => axiosClient.get(`house/getHouse/${id}`)
 const editHouse = (id, data) => axiosClient.patch(`house/editHouse/${id}`, data);
 const deleteHouse = (id) => axiosClient.delete(`house/deleteHouse/${id}`)
 const filterHouse = (filters) => axiosClient.get('house/search', { params: filters });
+const editProfile = (data )=> axiosClient.patch('user/edit-userProfile', data)
 
 export default {
     createUser,
     getUserById,
+    editProfile,
     getProfileByClerkId,
     getAllHouse,
     createHouse,

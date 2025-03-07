@@ -73,6 +73,7 @@ const UserProfile = () => {
                   {userDetails.location ? userDetails.location : 'No location provided'}
                 </p>
                 <p className="text-sm text-gray-500 mt-1">Member since {formatDate(userDetails.createdAt)}</p>
+
               </div>
 
             </div>
