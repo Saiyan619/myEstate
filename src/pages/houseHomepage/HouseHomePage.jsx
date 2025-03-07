@@ -75,7 +75,7 @@ console.log(filterHouseCards)
         {filterHouseCards?.map((item, index) => {
   return (
     <div key={index}>
-      <FilteredCard item={item} />
+      <FilteredCard />
     </div>
   );
 })}
