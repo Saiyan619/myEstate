@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import Nav from '../../GlobalComponents/Nav';
 import HouseCard from './components/HouseCard';
 import GlobalApi from '../../Utils/GlobalApi';
-import HomeSectionOne from './homepageSections/homeSectionOne';
+import HomeSectionOne from './homepageSections/HomeSectionOne';
 import Footer from './Footer';
 import { useUser } from '@clerk/clerk-react';
 import SkeletonHomeCard from './components/SkeletonHomeCard';
