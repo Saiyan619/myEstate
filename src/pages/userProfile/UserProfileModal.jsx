@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import GlobalApi from '../../Utils/GlobalApi';
-import UserProfilePropertyCards from './userProfilePropertyCards';
+import UserProfilePropertyCards from './UserProfilePropertyCards';
 
 const UserProfileModal = ({ id, postedHouses }) => {
       const [properties, setProperties] = useState([]);
