@@ -72,11 +72,13 @@ console.log(filterHouseCards)
         </div>
 
         <div>
-          {filterHouseCards?.map((index, item) => {
-            return <div key={index}>
-              <FilteredCard item={item} />;
-            </div>
-          })}
+        {filterHouseCards?.map((item, index) => {
+  return (
+    <div key={index}>
+      <FilteredCard item={item} />
+    </div>
+  );
+})}
 
           {!allHouses || allHouses.length === 0 ? (
             <div className="flex gap-4 items-center flex-wrap justify-center mt-4">

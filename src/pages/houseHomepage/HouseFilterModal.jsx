@@ -1,6 +1,8 @@
 import React from 'react'
 
-const HouseFilterModal = ({getFilterHouse,title,
+const HouseFilterModal = ({
+  getFilterHouse,
+  title,
     location,
     type,
     minPrice,
