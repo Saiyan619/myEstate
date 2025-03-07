@@ -3,23 +3,15 @@ import { Link } from 'react-router-dom';
 
 const FilteredCard = ({item}) => {
 
-  // console.log(item.images[0])
   console.log(item?.owner?._id)
   const baseUrl = 'http://localhost:5000/'
   const imagePath = `${baseUrl}${item?.images[0]}`.replace(/\\/g, "/");
 console.log(imagePath)
-//   if (item?.images) {
-//     console.log(`${baseUrl}${item?.images[0]}`);
-// } else {
-//     console.log("No images available for this item.");
-// }
+
 return (
     <div className='flex items-center justify-center flex-wrap gap-20 mt-10'>
       <div className="card bg-base-100 w-72 shadow-xl">
   <figure>
-    {/* <img
-      src=  {`${baseUrl}${item?.images[0]}`}
-      alt="Shoes" /> */}
           {item?.images?.length > 0 && (
             <img src={imagePath} alt="House" />
           )}

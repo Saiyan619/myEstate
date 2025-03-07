@@ -5,7 +5,7 @@ import HouseCard from "../home/components/HouseCard";
 import SkeletonHomeCard from "../home/components/SkeletonHomeCard";
 import HouseFilterModal from "./HouseFilterModal";
 import Nav from "../../GlobalComponents/Nav";
-import FilteredCard from "./filteredCard";
+import FilteredCard from "./FilteredCard";
 
 const HouseHomePage = () => {
   const [filterHouseCards, setFilterHouseCards] = useState([]);
