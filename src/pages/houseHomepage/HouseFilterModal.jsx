@@ -71,7 +71,10 @@ const HouseFilterModal = ({
                 className="select select-bordered w-full bg-gray-50 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 rounded-md"
                 value={type}
               >
-                <option disabled selected>Select type</option>
+
+                <option value="" disabled hidden>
+                  Select type
+                </option>
                 <option>Bungalow</option>
                 <option>Duplex</option>
                 <option>Mansion</option>
@@ -80,7 +83,7 @@ const HouseFilterModal = ({
               </select>
               <div className="label"></div>
             </label>
-
+            
             <div className="flex flex-col space-y-2">
               <span className="font-medium text-gray-700">Price Range</span>
               <div className="flex space-x-4 items-center">

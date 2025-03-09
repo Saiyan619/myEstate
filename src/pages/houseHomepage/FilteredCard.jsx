@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-const FilteredCard = () => {
+const FilteredCard = ({item}) => {
   console.log(item?.owner?._id)
   const baseUrl = 'http://localhost:5000/'
   const imagePath = `${baseUrl}${item?.images[0]}`.replace(/\\/g, "/");

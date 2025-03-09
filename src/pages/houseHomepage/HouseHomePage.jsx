@@ -15,6 +15,8 @@ const HouseHomePage = () => {
   const [type, setType] = useState("");
   const [minPrice, setMinPrice] = useState();
   const [maxPrice, setMaxPrice] = useState();
+  const [hasSearched, setHasSearched] = useState(false); 
+
 
   useEffect(() => {
     getHouseAll();
@@ -23,23 +25,22 @@ const HouseHomePage = () => {
   const getFilterHouse = async () => {
     try {
       const filterData = {
-        title: title,
-        location: location,
-        type: type,
-        minPrice: minPrice,
-        maxPrice: maxPrice,
+        title,
+        location,
+        type,
+        minPrice,
+        maxPrice,
       };
       const response = await GlobalApi.filterHouse(filterData);
-      document.getElementById("my_modal_5").close(); // Close modal after successful filter
+      document.getElementById("my_modal_5").close(); 
       console.log(response.data);
       setFilterHouseCards(response.data);
-
+      setHasSearched(true);
     } catch (error) {
       console.error(error);
     }
   };
-
-console.log(filterHouseCards)
+  
 
   const getHouseAll = async () => {
     try {
@@ -72,13 +73,24 @@ console.log(filterHouseCards)
         </div>
 
         <div>
-        {filterHouseCards?.map((item, index) => {
-  return (
-    <div key={index}>
-      <FilteredCard />
+
+        {hasSearched && (
+  filterHouseCards.length > 0 ? (
+    <div>
+      {filterHouseCards.map((item, index) => (
+        <div key={index}>
+          <FilteredCard item={item} />
+        </div>
+      ))}
     </div>
-  );
-})}
+  ) : (
+    <div className="text-center">
+      <span>No Properties found</span>
+    </div>
+  )
+)}
+
+ 
 
           {!allHouses || allHouses.length === 0 ? (
             <div className="flex gap-4 items-center flex-wrap justify-center mt-4">
