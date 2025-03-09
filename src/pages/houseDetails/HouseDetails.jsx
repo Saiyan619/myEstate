@@ -87,11 +87,11 @@ const HouseDetails = () => {
           
           {/* Edit button - only show if the current user is the owner */}
           <div className="mb-6">
-            <EditHouseModal clerkId={houseDetails?.owner?.clerkId} ownerId={user.id} id={id} onUpdate={refreshDetails} />
+            <EditHouseModal  postedBy={houseDetails?.postedBy} clerkId={houseDetails?.owner?.clerkId} ownerId={user?.id} id={id} onUpdate={refreshDetails} />
           </div>
 
           <div>
-            <DeleteHouse clerkId={houseDetails?.owner?.clerkId} ownerId={user.id} id={id} />
+            <DeleteHouse postedBy={houseDetails?.postedBy}  clerkId={houseDetails?.owner?.clerkId} ownerId={user?.id} id={id} />
           </div>
           
           <div className="mb-6">

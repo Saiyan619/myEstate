@@ -1,12 +1,35 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import GlobalApi from '../../Utils/GlobalApi'
+import { useUser } from '@clerk/clerk-react'
 
-const DeleteHouse = ({ id, ownerId, clerkId }) => {
+const DeleteHouse = ({ id, ownerId, clerkId, postedBy }) => {
     
+  const [disableBtn, setdisableBtn] = useState(true)
+
+  useEffect(() => {
+    if (postedBy) {
+      checkOwner()
+   }
+
+  }, [postedBy])
+  
+
+  const checkOwner = () => {
+    if (postedBy === ownerId) { 
+      setdisableBtn(false)
+    } else {
+      setdisableBtn(true)
+    }
+  }
+
+  console.log(ownerId)
+  console.log(postedBy)
+  
     const deleteAHouse = async () => {
         try {
-            if (id && ownerId && clerkId===ownerId ) {
-                console.log(id)
+          if (postedBy === ownerId) { 
+            console.log(id)
                 const response = await GlobalApi.deleteHouse(id);
                 console.log(response.data)
             } else {
@@ -20,7 +43,7 @@ const DeleteHouse = ({ id, ownerId, clerkId }) => {
   return (
     <div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-<button className="btn btn-error mb-5" onClick={()=>document.getElementById('my_modal_6').showModal()}>Delete House</button>
+<button  className={`btn btn-outline btn-error mb-5 ${disableBtn ? "btn-disabled" : ""} flex items-center gap-2`}onClick={()=>document.getElementById('my_modal_6').showModal()}>Delete House</button>
 <dialog id="my_modal_6" className="modal modal-bottom sm:modal-middle">
   <div className="modal-box">
     <h3 className="font-bold text-lg">Are you sure?</h3>

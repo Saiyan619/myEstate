@@ -3,7 +3,7 @@ import GlobalApi from "../../Utils/GlobalApi";
 import { useUser } from "@clerk/clerk-react";
 import { Edit } from "lucide-react";
 
-const EditHouseModal = ({ id, ownerId, clerkId }) => {
+const EditHouseModal = ({ id, ownerId, clerkId, postedBy }) => {
   const { user } = useUser();
   const [houseDetails, setHouseDetails] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -17,14 +17,29 @@ const EditHouseModal = ({ id, ownerId, clerkId }) => {
   const [rooms, setRooms] = useState(0);
   const [bathrooms, setBathrooms] = useState(0);
   const [images, setImages] = useState([]);
-  const [postedBy, setPostedBy] = useState(user?.id || "");
+  // const [postedBy, setPostedBy] = useState(user?.id || "");
+  const [disableBtn, setdisableBtn] = useState(true)
 
   // Fetch house details when component mounts or id changes
   useEffect(() => {
+    if (postedBy) {
+      checkOwner()
+    }
     if (id) {
       getHouseDetail();
     }
-  }, [id]);
+
+   
+  }, [postedBy]);
+
+  
+  const checkOwner = () => {
+    if (postedBy === ownerId) { 
+      setdisableBtn(false)
+    } else {
+      setdisableBtn(true)
+    }
+  }
 
   // Set form values when house details are loaded
   useEffect(() => {
@@ -36,7 +51,7 @@ const EditHouseModal = ({ id, ownerId, clerkId }) => {
       setType(houseDetails.type || "");
       setRooms(houseDetails.rooms || 0);
       setBathrooms(houseDetails.bathrooms || 0);
-      setPostedBy(houseDetails.postedBy || user?.id || "");
+      // setPostedBy(houseDetails.postedBy || user?.id || "");
       // Don't set images i don't want to display the old file objects
     }
   }, [houseDetails, user?.id]);
@@ -72,7 +87,7 @@ const EditHouseModal = ({ id, ownerId, clerkId }) => {
         return;
       }
 
-      if (id && ownerId && clerkId === ownerId) {
+      if (postedBy === ownerId) { 
         
       const formData = new FormData();
       formData.append("title", title);
@@ -82,7 +97,7 @@ const EditHouseModal = ({ id, ownerId, clerkId }) => {
       formData.append("type", type);
       formData.append("rooms", rooms);
       formData.append("bathrooms", bathrooms);
-      formData.append("postedBy", postedBy);
+      // formData.append("postedBy", postedBy);
 
       // Append images only if new ones were selected
       if (images.length > 0) {
@@ -109,7 +124,7 @@ const EditHouseModal = ({ id, ownerId, clerkId }) => {
   return (
     <div>
       <button 
-        className="btn btn-outline flex items-center gap-2" 
+        className={`btn btn-outline ${disableBtn ? "btn-disabled" : ""} flex items-center gap-2`}
         onClick={() => document.getElementById("my_modal_5").showModal()}
       >
         <Edit size={16} /> Edit Profile
