@@ -12,16 +12,17 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const { user } = useUser();
-  console.log(user.id)
-  console.log(user.firstName)
-  console.log(user.lastName)
-  console.log(user.primaryEmailAddress.emailAddress)
+  console.log(user?.id)
+  console.log(user?.firstName)
+  console.log(user?.lastName)
+  console.log(user?.primaryEmailAddress.emailAddress)
   const [allHouses, setAllHouses] = useState([])
 
   useEffect(() => {
     if (user) {
       createAUser()
     }
+   console.log("user not yet created3")
     getHouseAll()
     
   }, [user])
