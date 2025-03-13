@@ -2,8 +2,8 @@ import axios from "axios";
 
 // Base Url host connecting frontend to the backend (Making use of the global Api method)
 const axiosClient = axios.create({
-    // baseURL: import.meta.env.VITE_PUBLIC_API_URL
-    baseURL: 'http://localhost:5000/'
+    baseURL: import.meta.env.VITE_PUBLIC_API_URL
+    // baseURL: 'http://localhost:5000/'
 });
 
 
