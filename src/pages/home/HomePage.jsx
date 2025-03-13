@@ -55,6 +55,10 @@ const HomePage = () => {
     }
   }
 
+  //Limiting the amount of houses seen on the Homepage
+  const firstFiveHouses = allHouses.slice(0, 5);
+  console.log(firstFiveHouses)
+
   return (
     <div>
      <Nav />
@@ -72,7 +76,7 @@ const HomePage = () => {
         :
 
 (<div className='flex gap-4 items-center flex-wrap justify-center'>
-  {allHouses.map((item, index) => {
+  {firstFiveHouses.map((item, index) => {
     return <HouseCard key={index} item={item} />
   })}
     </div>)
