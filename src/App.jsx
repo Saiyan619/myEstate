@@ -26,9 +26,9 @@ const App = () => {
       {/* Protected Routes */}
       <Route path="/"
         element={
-          // <RequireAuth>
+          <RequireAuth>
             <HomePage />
-          // </RequireAuth>
+         </RequireAuth>
         }
       />
 
