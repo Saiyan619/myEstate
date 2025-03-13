@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.22.0",
+    "@vercel/analytics": "^1.5.0",
     "axios": "^1.7.9",
     "daisyui": "^4.12.14",
     "emailjs-com": "^3.2.0",
