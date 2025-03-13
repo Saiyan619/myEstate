@@ -30,4 +30,4 @@ export default {
     editHouse,
     deleteHouse,
     filterHouse
-}
+};
