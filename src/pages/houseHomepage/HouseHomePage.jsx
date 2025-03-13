@@ -76,7 +76,8 @@ const HouseHomePage = () => {
 
         {hasSearched && (
   filterHouseCards.length > 0 ? (
-    <div>
+              <div>
+                <div><span>{filterHouseCards?.length} Houses Found!🎊</span></div>
       {filterHouseCards.map((item, index) => (
         <div key={index}>
           <FilteredCard item={item} />
