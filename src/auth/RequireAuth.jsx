@@ -7,6 +7,7 @@ const RequireAuth = ({ children }) => {
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
+  
 
   if (!isSignedIn) {
     return <RedirectToSignIn />;

@@ -49,7 +49,8 @@ const HouseDetails = () => {
         {houseDetails?.images?.map((item, index) => (
           <div key={index} id={`slide${index}`} className="carousel-item relative w-full">
             <img 
-              src={`${baseUrl}${item}`} 
+              // src={`${baseUrl}${item}`} 
+              src={item} 
               alt={`House image ${index + 1}`} 
               className="w-full object-cover h-96" 
             />

@@ -12,7 +12,8 @@ const HouseCard = ({ item }) => {
       <div className="card bg-base-100 w-72 shadow-xl">
   <figure>
     <img
-      src=  {`${baseUrl}${item?.images[0]}`}
+            // src=  {`${baseUrl}${item?.images[0]}`}
+            src={item?.images[0]} 
       alt="Shoes" />
         
   </figure>
