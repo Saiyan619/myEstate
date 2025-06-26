@@ -66,7 +66,6 @@ const EditHouseModal = ({ id, ownerId, clerkId, postedBy }) => {
       if (id && ownerId && clerkId === ownerId) { 
         const response = await GlobalApi.getHouseDetails(id);
         setHouseDetails(response.data);
-        console.log("Loaded house details:", response.data);
       }
      
     } catch (error) {

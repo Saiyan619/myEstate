@@ -23,8 +23,6 @@ const DeleteHouse = ({ id, ownerId, clerkId, postedBy }) => {
     }
   }
 
-  console.log(ownerId)
-  console.log(postedBy)
   
     const deleteAHouse = async () => {
         try {

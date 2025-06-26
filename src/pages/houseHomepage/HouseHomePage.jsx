@@ -45,7 +45,6 @@ const HouseHomePage = () => {
   const getHouseAll = async () => {
     try {
       const response = await GlobalApi.getAllHouse();
-      console.log(response.data);
       setAllHouses(response.data);
     } catch (error) {
       console.error(error);
@@ -104,10 +103,13 @@ const HouseHomePage = () => {
               {allHouses.map((item, index) => {
                 return <HouseCard key={index} item={item} />;
               })}
+              
             </div>
           )}
+          
         </div>
       </div>
+      
     </div>
   );
 };

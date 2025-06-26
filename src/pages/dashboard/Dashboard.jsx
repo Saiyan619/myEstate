@@ -13,7 +13,6 @@ const UserDashboard = () => {
   const fetchMyDetails = async () => {
     try {
       const response = await GlobalApi.getProfileByClerkId(id)
-      console.log(response.data)
       setUserDetails(response.data)
     } catch (error) {
       console.error(error)
@@ -142,14 +141,15 @@ const UserDashboard = () => {
               <div className="bg-gray-50 rounded-lg p-6 shadow border border-gray-200">
                 <h3 className="text-lg font-semibold mb-4">Account Information</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-center">
+                  {/* UI control */}
+                  {/* <div className="flex items-center">
                     <div className="font-medium text-gray-500 w-32">User ID:</div>
                     <div className="text-gray-700 font-mono text-sm truncate">{userDetails?.userId ?? '?'}</div>
                   </div>
                   <div className="flex items-center">
                     <div className="font-medium text-gray-500 w-32">Clerk ID:</div>
                     <div className="text-gray-700 font-mono text-sm truncate">{userDetails?.clerkId ?? '?'}</div>
-                  </div>
+                  </div> */}
                   <div className="flex items-center">
                     <div className="font-medium text-gray-500 w-32">Created:</div>
                     <div className="text-gray-700">{formatDate(userDetails?.createdAt)}</div>

@@ -10,6 +10,7 @@ import HouseDetails from './pages/houseDetails/HouseDetails';
 import UserProfile from './pages/userProfile/UserProfile';
 import ContextProvider from './Utils/Context';
 import HouseHomePage from './pages/houseHomepage/HouseHomePage';
+import AuthCallback from './auth/AuthCallback';
 
 
 const App = () => {
@@ -22,13 +23,14 @@ const App = () => {
       {/* Public Routes */}
       <Route path="/sign-in/*" element={<SignIn />} />
       <Route path="/sign-up/*" element={<SignUp />} />
-
+        <Route path="/auth/callback" element={<AuthCallback />} />
+        
       {/* Protected Routes */}
       <Route path="/"
         element={
-          <RequireAuth>
+          // <RequireAuth>
             <HomePage />
-         </RequireAuth>
+        //  </RequireAuth>
         }
       />
 

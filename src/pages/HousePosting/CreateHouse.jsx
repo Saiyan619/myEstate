@@ -23,11 +23,6 @@ const CreateHouse = () => {
     setImages([...e.target.files]);
   }
 
-  console.log(type)
-  // console.log(user)
-  // console.log(postedBy)
-
-
   const createNewHouse = async () => {
     try {
       setLoader(true)

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 const FilteredCard = ({item}) => {
-  console.log(item?.owner?._id)
 
 return (
     <div className='flex items-center justify-center flex-wrap gap-20 mt-10'>

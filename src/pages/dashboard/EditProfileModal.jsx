@@ -41,7 +41,6 @@ const EditProfileModal = ({ userDetails, fetchMyDetails }) => {
         ...formData
       });
 
-      console.log(response.data);
       document.getElementById("edit_profile_modal").close();
       // Refresh user details after successful update
       fetchMyDetails();

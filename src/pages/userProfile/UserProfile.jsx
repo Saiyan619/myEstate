@@ -27,7 +27,6 @@ const UserProfile = () => {
                 console.log("id does not exist")
             }
             const response = await GlobalApi.getProfileByClerkId(id)
-            console.log(response.data)
             setuserDetails(response.data)
             setPermit()
         } catch (error) {

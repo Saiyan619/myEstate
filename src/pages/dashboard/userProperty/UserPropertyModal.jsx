@@ -15,7 +15,6 @@ const UserPropertyModal = ({ id, postedHouses }) => {
     try {
       if (!postedHouses || postedHouses.length === 0) return;
         const responses = await GlobalApi.getProfileByClerkId(id)
-        console.log(responses.data)
         setProperties(responses.data)
     } catch (error) {
       console.error("Error fetching properties:", error);
